@@ -8,8 +8,11 @@ url = "https://www.google.com/maps/place/Za+Arlington/@42.4041201,-71.1507548,15
 
 async def scrape_reviews(url):
 
-    browser = await launch({"headless": False, "args": ["--window-size=800,3200"]})
+    browser = await launch({"headless": False, "args": ["--window-size=800,3200"],'executablePath': r'C:\Program Files\chrome-win\chrome.exe'})
 
     page = await browser.newPage()
     await page.setViewport({"width": 800, "height": 3200})
     await page.goto(url)
+
+
+asyncio.run(scrape_reviews(url))
